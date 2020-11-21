@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row m-4">
+        <div class="col-md-4">
+            <img src="{{ post.image.url }}" width="100%">
+        </div>
+        <div class="col-md-8">
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.description }}</p>
+            <a href="{% url 'blog' %}">Back</a>
+        </div>
+    </div>
+    <script>
+        document.cookie = "lastseen="+location+";path=/";
+    </script>
+{% endblock %}

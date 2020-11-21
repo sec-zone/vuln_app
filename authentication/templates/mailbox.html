@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load blog_extras %}
+<div class="container">
+    <table class="table table-borderd table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>From</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Receive at</th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for mail in mails %}
+                <tr>
+                    <td>{{ mail.id }}</td>
+                    <td>{{ mail.mail_from }}</td>
+                    <td>{{ mail.subject }}</td>
+                    <td>{{ mail.message }}</td>
+                    <td>{{ mail.create_date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

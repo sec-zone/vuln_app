@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load blog_extras %}
+<form action="" method="POST">
+    <div class="form-group">
+        {% if auth_error %}
+            <div class="alert alert-danger m-3" role="alert">
+                {{ auth_error }}
+            </div>
+        {% endif %}
+      <label for="username">username</label>
+      <input type="text" class="form-control" id="username" name='username'>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" name="rememberme">
+      <label class="form-check-label" for="exampleCheck1">Remember me</label>
+      <span class="float-right">
+        <a href="{% url 'forgotpassword' %}">Do you forget your password?</a>
+      </span>
+    </div>
+
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}

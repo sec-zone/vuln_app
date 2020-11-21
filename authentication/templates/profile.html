@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load blog_extras %}
+<div class="jumbotron m-5">
+    <h1 class="display-4">Hello, Dear {{ user }}</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>Please consider that your IP address is logged by server.</p>
+    <p>IP: {{ ip }}</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'mailbox' user %}" role="button">Mailbox</a>
+  </div>
+{% endblock %}

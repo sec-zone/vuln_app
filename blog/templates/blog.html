@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load blog_extras %}
+    <div class="row">
+    {% for post in posts %}
+        <div class="col-m-4 m-3">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.description | slice:100 }}</p>
+            <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        </div>
+      {% endfor %}
+    </div>
+{% endblock %}
